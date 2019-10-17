@@ -174,10 +174,30 @@ a:hover{
 	outline:none;
 }
 
+/* [contenteditable=true]:empty:before{
+  content: attr(placeholder);
+  display: block;
+} */
+
 #commandList::-webkit-scrollbar {
     width: 0em;
 }
 
+.message {
+word-wrap: break-word;
+  border-right: .15em solid orange; /* The typwriter cursor */
+  white-space: nowrap;
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  animation: 
+    typing 3.5s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
 
 @media screen and (max-width: 1200px) {
 

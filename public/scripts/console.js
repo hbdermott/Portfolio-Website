@@ -87,7 +87,8 @@ var CLI = {
         }
         else if(text == "./hello") {
             var newMsg = msg.cloneNode(true);
-            curMsg = CLI.list.cur.appendChild(newMsg);
+            var curMsg = CLI.list.cur.appendChild(newMsg);
+            curMsg.innerHTML = CLI.messages.hello;
         }
         else if(text == "wget resume") {
             window.location.href="/resume"
@@ -178,11 +179,3 @@ function placeCaretAtEnd(el) {
         textRange.select();
     }
 }
-
-// function type() {
-//     if(i < CLI.messages.hello.length) {
-//         curMsg.innerHTML += CLI.messages.hello.charAt(i);
-//         i++;
-//         setTimeout(type(str, location), 50);
-//     }
-// }

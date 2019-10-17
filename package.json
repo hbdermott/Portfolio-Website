@@ -14,7 +14,6 @@
     "curl": "^0.1.4",
     "ejs": "^2.7.1",
     "express": "^4.17.1",
-    "progressbar.js": "git+https://github.com/kimmobrunfeldt/progressbar.js.git",
     "request": "^2.88.0"
   }
 }

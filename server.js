@@ -2,9 +2,6 @@ var express = require("express");
 var app = express();
 var request = require("request");
 var bodyParser = require("body-parser");
-module.exports.ProgressBar = require("progressbar.js");
-
-
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
@@ -20,7 +17,15 @@ app.get("/resume", function(req, res) {
 });
 
 app.get("/about", function(req, res) {
-	res.render("about")
+	res.render("about");
+});
+
+app.get("/contact", function(req, res) {
+    res.render("contact");
+});
+
+app.post("/contact", function(req, res) {
+
 });
 
 app.get("*", function(req, res) {
