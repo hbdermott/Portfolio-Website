@@ -21,11 +21,15 @@ app.get("/about", function(req, res) {
 });
 
 app.get("/contact", function(req, res) {
-    res.render("contact");
+    res.render("contact", {done: false});
 });
 
 app.post("/contact", function(req, res) {
-
+    var name = req.body.name;
+    var email = req.body.email;
+    var number = req.body.number;
+    var message = req.body.message;
+    res.render("contact", {done:true});
 });
 
 app.get("*", function(req, res) {

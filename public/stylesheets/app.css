@@ -6,7 +6,8 @@ body {
 	height: 100vh;
 	margin: 0;
 	font-family: 'Inconsolata', monospace;
-	caret-color: transparent;
+	scrollbar-color: #dedcdc #2e2e2e;
+	scrollbar-width: auto;
 }
 
 nav {
@@ -19,12 +20,14 @@ nav {
 	width: 100%;
 	display: flex;
 	align-items: start;
+      box-sizing: border-box;
 }
 
 .nav-container {
 	height: 100%;
 	width: inherit;
 	display: flex;
+    box-sizing: border-box;
 }
 
 .links {
@@ -39,7 +42,7 @@ a:hover{
 	color: #347ff7;
 }
 
-.title {
+ .title {
 	font-size: 2.5rem;
 	letter-spacing: 0.2rem;
 	color: #2e2e2e;
@@ -47,6 +50,11 @@ a:hover{
 	align-items: center;
 	justify-content: center;
 	display: flex;
+}
+
+#name {
+    color: #2e2e2e;
+    text-decoration: none;
 }
 
 .links a {
@@ -130,7 +138,7 @@ a:hover{
 }
 
 .yellow {
-	color: #f0d83e;
+	color: #fffb00;
 }
 
 .green {
@@ -143,8 +151,7 @@ a:hover{
 	margin: 0 auto;
 	overflow-y: auto;
 	overflow-x: none;
-	scrollbar-color: #dedcdc #2e2e2e;
-	scrollbar-width: auto;
+    caret-color: transparent;
 }
 
 .bottomBar {
@@ -174,48 +181,21 @@ a:hover{
 	outline:none;
 }
 
-/* [contenteditable=true]:empty:before{
-  content: attr(placeholder);
-  display: block;
-} */
 
 #commandList::-webkit-scrollbar {
     width: 0em;
 }
 
-.message {
-word-wrap: break-word;
-  border-right: .15em solid orange; /* The typwriter cursor */
-  white-space: nowrap;
-  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-  letter-spacing: .15em; /* Adjust as needed */
-  animation: 
-    typing 3.5s steps(40, end),
-    blink-caret .75s step-end infinite;
-}
-
-@keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
-}
 
 @media screen and (max-width: 1200px) {
-
-	body {
-		font-size: 4.5rem;
-	}
-	.links {
-		font-size: 6rem;
-	}
-	.title {
-		font-size: 5rem;
-		width: 66.6%;
-	}
-	nav {
-		height: 10rem;
+    body {
+        font-size: 4.5rem;
+    }
+    nav {
+		height: 12%;
 	}
 	#commandList {
-		height: 81%;
+		height: 83%;
 	}
 	.bottomBar {
 		height: 5%;
@@ -229,5 +209,142 @@ word-wrap: break-word;
     #modal {
         font-size: 4rem;
     }
+	.title {
+		width: 66.6%;
+	}
+    #name {
+        font-size: 5.5rem;
+    }
+    .links {
+        width: 33.3%;
+        font-size: 6rem;
+    }
+    form input{ 
+        font-size: 4rem;
+    }
+    .form-box form textarea {
+        font-size: 3.5rem;
+    }
+    .form-box .form-title {
+        font-size: 5.5rem;
+    }
+}
 
+@media screen and (max-width: 1000px) {
+    .title {
+        width: 50%;
+    }
+    .links {
+        width: 50%;
+	}
+}
+
+
+
+/* Contact CSS */
+
+.form {
+    padding-top: 1%;
+    height: 90%;
+    width: 100%;
+     display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-title {
+    font-size: 4rem;
+    font-weight: bold;
+    margin: 0 auto;
+}
+
+.form-bg {
+  background-image: url("../assets/contact.png");
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+    height: 100%;
+    width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Position text in the middle of the page/image */
+.form-box {
+  background-color: rgba(42,42,42, 0.7); /* Black w/opacity/see-through */
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -70%);
+  z-index: 2;
+  width: 80%;
+  max-width: 1600px;
+  height: 80%;
+  max-height: 1000px;
+  padding: 4%;
+  text-align: center;
+  box-sizing: border-box;
+  overflow-y: auto;
+  border: 10px solid #dedcdc;
+}
+
+.form-box p {
+    margin-bottom: 15px;
+    padding: 0;
+}
+
+form textarea {
+    margin-top: 40px;
+}
+
+ input, textarea {
+  width: 100%;
+  padding: 20px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border-radius: 10px;
+  /* border: 2px solid #2e2e2e; */
+  outline: none;
+  box-sizing: border-box;
+  font-size: 2rem;
+  font-family: inherit;
+}
+
+input:focus {
+    box-shadow: 0 0 10px #fff;
+}
+
+input[type=submit] {
+  background-color: #49bf2e;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+
+input[type=submit]:hover {
+  background-color: #45a049;
+} 
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #dedcdc; }
+}
+
+.typewriter p {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .1em solid #dedcdc; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0px auto; /* Gives that scrolling effect as the typing happens */
+  margin-bottom: 20px;
+  letter-spacing: .1em; /* Adjust as needed */
+  animation: 
+    typing 3s steps(40, end),
+    blink-caret .75s step-end infinite;
 }
