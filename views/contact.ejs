@@ -8,6 +8,7 @@
               <p>I'll try to get back to you shortly</p>
               <p>In case I don't respond, you can try to contact me at</p>
               <p class="red half-tab"> Email: <span class="green">hbdermott@gmail.com</span></p>
+              <a href="/" class="link-button">Return Home</a>
         <% } else{ %>
         <span class="typewriter">
             <p class="form-title">Contact Me!</p>
@@ -16,7 +17,7 @@
 		<form action="/contact" method="POST">
 			<input type="text" name="name" placeholder="Name..." required>
 			<input type="email" name="email" placeholder="Email..." required>
-			<input type="tel" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Number...">
+			<input type="tel" name="number" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Number...">
 			<textarea name="message" placeholder="Tell me something"></textarea>
 			<input type="submit" name="submit" value="Submit">
 		</form>

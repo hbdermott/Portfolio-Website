@@ -348,3 +348,19 @@ input[type=submit]:hover {
     typing 3s steps(40, end),
     blink-caret .75s step-end infinite;
 }
+
+.link-button {
+    padding: 20px;
+    background-color: #49bf2e;
+    border-radius: 6px;
+    color: #dedcdc;
+    text-decoration: none;
+    display: block;
+    width: 50%;
+    margin: 20px auto;
+}
+
+.link-button:hover {
+    background-color: #45a049;
+    color: #dedcdc;
+}

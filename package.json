@@ -4,12 +4,16 @@
   "description": "My Personal Portfolio Website",
   "main": "server.js",
   "scripts": {
-    "start": "node .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
   },
   "author": "Hunter Dermott",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hbdermott/Portfolio-Website"
+  },
   "license": "ISC",
   "dependencies": {
+    "@google-cloud/datastore": "^4.4.0",
     "body-parser": "^1.19.0",
     "curl": "^0.1.4",
     "ejs": "^2.7.1",

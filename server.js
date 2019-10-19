@@ -1,7 +1,15 @@
-var express = require("express");
-var app = express();
-var request = require("request");
-var bodyParser = require("body-parser");
+const express = require("express");
+const app = express();
+const request = require("request");
+const bodyParser = require("body-parser");
+const {Datastore} = require('@google-cloud/datastore');
+const projectId = "silicon-clock-255004";
+
+const datastore = new Datastore({
+  projectId: projectId,
+});
+const kind = "contact";
+
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
@@ -25,11 +33,24 @@ app.get("/contact", function(req, res) {
 });
 
 app.post("/contact", function(req, res) {
-    var name = req.body.name;
-    var email = req.body.email;
-    var number = req.body.number;
-    var message = req.body.message;
-    res.render("contact", {done:true});
+    var key = datastore.key([kind, req.body.name]);
+    var contact = {
+            key: key,
+            data: {
+                email: req.body.email,
+                number: req.body.number,
+                message: req.body.message
+            }
+    };
+    datastore
+  .save(contact)
+  .then(() => {
+    console.log(`Saved ${contact.key.name}: ${contact.data}`);
+  })
+  .catch(err => {
+    console.error('ERROR:', err);
+  });
+res.render("contact", {done:true});
 });
 
 app.get("*", function(req, res) {
